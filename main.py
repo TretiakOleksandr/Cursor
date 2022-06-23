@@ -218,6 +218,9 @@ print(new_list)
 new_list = [list_A[x] ** list_B[x] for x in range(len(list_A))]
 print(new_list)
 
+#v3
+print(list(map(lambda x, y: x ** y, list_A, list_B)))
+
 #24. Use filter and lambda to filter the number of a lst_to_sort with elem % 2 == 1.
 print('----------24----------')
 print(list(filter(lambda x: x % 2 == 1, lst_to_sort)))
