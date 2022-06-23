@@ -229,8 +229,6 @@ print(list(filter(lambda x: x < 0, list(b))))
 
 # 26*. Using the filter function, find the values that are common to the two lists:
 print('----------26*----------')
-
 list_1 = [1,2,3,5,7,9]
 list_2 = [2,3,5,6,7,8]
-
-#in progress
+print(list(filter(lambda x: x in list_2, list_1)))
