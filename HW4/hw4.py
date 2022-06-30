@@ -10,12 +10,11 @@ class Vehicle:
 
 #2
 class Bus(Vehicle):
-    # used_capacity: int
     message = "Sorry, too big quantity"
     def __init__(self, name, max_speed, total_capacity, used_capacity): #6
         super().__init__(name, max_speed, total_capacity)
         self.used_capacity = used_capacity
-        if self.used_capacity > self.total_capacity:
+        if self.used_capacity > self.total_capacity: #6
             raise "Error: I can`t contain so many :("
 
     def __str__(self):
