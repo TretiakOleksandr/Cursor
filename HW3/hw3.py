@@ -80,7 +80,7 @@ print('----------11*----------')
 honey_apple_num = 123
 pretty_peach_num = 42
 fruit_dict = {"first_fruit_num": honey_apple_num, "second_fruit_num": pretty_peach_num}
-print(f"Anna has %(first_fruit_num)i apples and %(second_fruit_num)i peaches." % fruit_dict)
+print("Anna has %(first_fruit_num)i apples and %(second_fruit_num)i peaches." % fruit_dict)
 
 
 # Comprehensions:
