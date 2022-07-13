@@ -81,16 +81,24 @@ print('--------------5--------------')
 class Concert:
     max_visitors_num = 50
 
-    def __init__(self, visitors_count):
-        self.visitors = visitors_count
+    def __init__(self, visitors):
+        self.visitors = visitors
 
     @property
     def visitors_count(self):
         return self.visitors if self.visitors < self.max_visitors_num else self.max_visitors_num
 
+    @visitors_count.setter
+    def visitors_count(self, value):
+        self.visitors = value
+
+
+
 concert_1 = Concert(48)
+concert_1.visitors_count = 21
 print(concert_1.visitors_count)
 concert_2 = Concert(78)
+concert_2.visitors_count = 127
 print(concert_2.visitors_count)
 
 #6
