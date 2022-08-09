@@ -41,21 +41,30 @@ with open('log.txt', 'r') as file:
             writer.writerow(line.split())
 
 # TASK 3
-data = {}
+import csv
+import json
+copy = []
+names = [] # імена файлів, які маємо
+data = {} # результуючий
 with open('log.csv', 'r') as csv_file:
-    file_list = []
-    count = 0
-    date = ''
-    time = ''
     reader = csv.reader(csv_file, delimiter=',')
     for line in reader:
-        print(line)
-        if line[2] not in file_list:
-            file_list.append(line[2])
-        if line[-1] == 'OPEN':
-            count += 1
-            date = str(line[0])
-            time = str(line[1])
-    print('Open count: ', count)
-    print('Date: ', date)
-    print('Time: ', time)
+        copy.append(line)
+        if line[2] not in names:
+            names.append(line[2]) # збереження імен файлів окремо
+names.pop(0) # видаляємо головний рядок
+copy.pop(0)
+data = dict.fromkeys(names) # створюється словник з ключами - іменами файлів
+for k in names:
+    data[k] =  {"count":0, "last_time_opened":""} # ініціалізація словника
+
+for j in names:
+    for i in copy:
+        if i[2] == j and i[3] == 'OPEN':
+            data[j]["count"] += 1
+            data[j]["last_time_opened"] = str(i[0]) + ' ' + str(i[1])
+print('Data: ', data)
+
+json_data = json.dumps(data) # конвертація в JSON
+
+print('JSONData :', json_data)
