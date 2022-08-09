@@ -1,5 +1,7 @@
 import datetime
 import time
+import csv
+import json
 
 # TASK 1
 class custom_open_file:
@@ -32,7 +34,6 @@ with custom_open_file('tururu.txt', 'w') as f:
     f.write('Little kitty')
 
 # TASK 2
-import csv
 with open('log.txt', 'r') as file:
     with open('log.csv', 'w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
@@ -41,8 +42,6 @@ with open('log.txt', 'r') as file:
             writer.writerow(line.split())
 
 # TASK 3
-import csv
-import json
 copy = []
 names = [] # імена файлів, які маємо
 data = {} # результуючий
